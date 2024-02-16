@@ -79,7 +79,7 @@ module.exports = {
             [data.id],
             (error, results, fields) => {
                 if(error) {
-                    return callBack(error);
+                     callBack(error);
                 }
                 return callBack(null, results[0]);
             }
