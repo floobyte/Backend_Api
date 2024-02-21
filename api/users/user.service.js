@@ -109,11 +109,12 @@ module.exports = {
             }
         );
         
+        console.log({a});
     },
 
     filterByGender: (gender, callBack) => {
-        pool.query(
-            `SELECT * FROM registration WHERE gender = ?`,
+      let a = pool.query(
+            `select * from registration where gender = ?`,
             [gender],
             (error, results, fields) => {
                 if (error) {
@@ -122,10 +123,12 @@ module.exports = {
                 return callBack(null, results);
             }
         );
+
+        // console.log({a});
     },
 
     searchByName: (name, callBack) => {
-        pool.query(
+       let a = pool.query(
             `SELECT * FROM registration WHERE first_name LIKE ? OR last_name LIKE ?`,
             [`%${name}%`, `%${name}%`],
             (error, results, fields) => {
@@ -135,6 +138,7 @@ module.exports = {
                 return callBack(null, results);
             }
         );
+        console.log(a);
     },
     
 };

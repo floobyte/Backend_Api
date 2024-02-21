@@ -36,6 +36,7 @@ module.exports = {
 
     getUserByUserId: (req, res) => {
         const id = req.params.id;
+        // console.log({id});
         getUserByUserId(id, (err, results) => {
             if (err) {
                 console.log(err);
@@ -137,6 +138,7 @@ module.exports = {
 
     filterByGender: (req, res) => {
         const { gender } = req.query;
+        console.log({gender});
         filterByGender(gender, (err, results) => {
             if (err) {
                 console.log(err);
