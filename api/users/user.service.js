@@ -109,5 +109,32 @@ module.exports = {
             }
         );
         
-    }
+    },
+
+    filterByGender: (gender, callBack) => {
+        pool.query(
+            `SELECT * FROM registration WHERE gender = ?`,
+            [gender],
+            (error, results, fields) => {
+                if (error) {
+                    return callBack(error);
+                }
+                return callBack(null, results);
+            }
+        );
+    },
+
+    searchByName: (name, callBack) => {
+        pool.query(
+            `SELECT * FROM registration WHERE first_name LIKE ? OR last_name LIKE ?`,
+            [`%${name}%`, `%${name}%`],
+            (error, results, fields) => {
+                if (error) {
+                    return callBack(error);
+                }
+                return callBack(null, results);
+            }
+        );
+    },
+    
 };
