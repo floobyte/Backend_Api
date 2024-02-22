@@ -96,7 +96,6 @@ module.exports = {
     // },
 
     getUserByUserEmail: (email, callBack) => {
-
       let a = pool.query(
             `select * from registration where email = ?`,
             [email],
@@ -109,13 +108,13 @@ module.exports = {
             }
         );
         
-        console.log({a});
+        // console.log({a});
     },
 
-    filterByGender: (gender, callBack) => {
+    filterByGender: (id, callBack) => {
       let a = pool.query(
-            `select * from registration where gender = ?`,
-            [gender],
+            `select * from registration where id = ?`,
+            [id],
             (error, results, fields) => {
                 if (error) {
                     return callBack(error);

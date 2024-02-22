@@ -137,9 +137,9 @@ module.exports = {
     },
 
     filterByGender: (req, res) => {
-        const { gender } = req.query;
-        console.log({gender});
-        filterByGender(gender, (err, results) => {
+        const { id } = req.query;
+        console.log({id});
+        filterByGender(id, (err, results) => {
             if (err) {
                 console.log(err);
                 return res.status(500).json({
